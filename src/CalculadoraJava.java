@@ -20,7 +20,7 @@ public class CalculadoraJava {
 
 
         while (escolha > 4 || escolha < 1) {
-            System.out.println("Opcão Inválida!\n Digite um número de 1-4:");
+            System.out.println("Opcão Invlálida!\n Digite um número de 1-4:");
             opcoes();
             escolha = scanner.nextInt();
         }
@@ -32,7 +32,7 @@ public class CalculadoraJava {
 
         if (escolha == 1) {
             double calculo = (numero1 + numero2);
-            System.out.println("Esta adição possui um resultado de: " + calculo);
+            System.out.println("Esta soma desta adição é " + calculo);
 
         } else if (escolha == 2) {
             double calculo = (numero1 - numero2);
