@@ -1,54 +1,57 @@
 import java.util.Scanner;
 public class CalculadoraJava {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        menu();
+    }
+
+    public static void opcoes() {
         System.out.println("Olá! Selecione a operação matemática a ser feita:\n" +
                 " 1 - Adição\n" +
                 " 2 - Subtração\n" +
-                " 3 - Multiplicacão\n" +
+                " 3 - Multiplicação \n" +
                 " 4 - Divisão\n");
+    }
+
+    public static void menu() {
+        Scanner scanner = new Scanner(System.in);
+
+        opcoes();
         int escolha = scanner.nextInt();
 
-        if (escolha > 4 || escolha < 1) {
-            System.out.println("Digite um número de 1-4...");
-            System.exit(1);
+
+        while (escolha > 4 || escolha < 1) {
+            System.out.println("Opcão Inválida!\n Digite um número de 1-4:");
+            opcoes();
+            escolha = scanner.nextInt();
         }
 
         System.out.println("Escolha o primeiro número: ");
-        int numero1 = scanner.nextInt();
+        double numero1 = scanner.nextDouble();
         System.out.println("Escolha o segundo número: ");
-        int numero2 = scanner.nextInt();
+        double numero2 = scanner.nextDouble();
 
         if (escolha == 1) {
-            int calculo = (numero1 + numero2);
-            System.out.println("O resultado desta adição é " + calculo);
+            double calculo = (numero1 + numero2);
+            System.out.println("Esta adição possui um resultado de: " + calculo);
 
-        }
-
-        else if (escolha == 2) {
-            int calculo = (numero1 - numero2);
+        } else if (escolha == 2) {
+            double calculo = (numero1 - numero2);
             System.out.println("Esta subtração tem como resultado: " + calculo);
+        } else if (escolha == 3) {
+            double calculo = (numero1 * numero2);
+            System.out.println("Esta multiplicação  possui um resultado de: " + calculo);
         }
-
-        else if (escolha == 3) {
-            int calculo = (numero1 * numero2);
-            System.out.println("Esta operação possui um resoltado de: " + calculo);
-        }
-
 
         else if (escolha == 4) {
-            if (numero2 == 0) {
-                System.out.println("Não é possível dividir por zero.");
-                System.exit(1);
+            while (numero2 == 0) {
+                System.out.println("Não é possível dividir por zero. Tente novamente:");
+                System.out.println("Digite um novo valor sem ser 0 para o número 2:");
+                numero2 = scanner.nextDouble();
             }
+            double calculo = (numero1/numero2);
+            System.out.println("Esta divisão tem como resultado: " + calculo);
 
-
-            else {
-                double calculo =  (double) numero1 / numero2;
-                System.out.println("O resultado desta divisão é de: " + calculo);
-            }
         }
-    scanner.close();
+        scanner.close();
     }
 }
-
